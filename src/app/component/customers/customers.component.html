@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+<div class="container mt-5 mb-2">
+  <header>
+    <h3>
+      <span class="fa fa-users"></span>
+      Customers
+    </h3>
+  </header>
+  <br />
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Card view</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" routerLink="/list">List view</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Map view</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/edit">+New Customer</a>
+    </li>
+  </ul>
+
+  <div class="form-group mt-3">
+    <input type="text" class="form-control" placeholder="Search by name" style="width: 200px">
+  </div>
+
+</div>
+
+
+
+<div class="container mt-5">
+  <div class="row card-container">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let k of alluser; index as i ">
+      <div class="card">
+        <div class="card-header">
+          <a [title]="k.Name + ' details'">
+            {{k.Name}}
+          </a>
+          <a>
+            <i title="Edit" (click)="toupdate(k)" class="pull-right fa fa-cog fa-spin white" data-target="#upmodel" data-toggle="modal"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="pull-left card-body-left">
+              <a href="#" class="white">
+                <img src="../../../assets/images/male.png" class="card-image" />
+              </a>
+            </div>
+            <div class="pull-left card-body-right">
+              <div class="card-body-content">{{k.City}}, {{k.State}}</div>
+              <a href=" ">View Orders</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Edit Model -->
+<div class="modal fade right side-modal" id="upmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div style="background-color:cornflowerblue" class="modal-header">
+        <h4 class="modal-title w-100 text-white" id="myModalLabel">Edit Customer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #cu="ngForm">
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Name</label>
+          <input style="display: none" name="_id" ngModel={{user._id}}>
+          <input class="form-control" name="Name" ngModel={{user.Name}}>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input class="form-control" name="Address" ngModel={{user.Address}}>
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input class="form-control" name="City" ngModel={{user.City}}>
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <input class="form-control" name="State" ngModel={{user.State}}>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="customerupdate(cu)" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<!-- Side Modal Top Right -->

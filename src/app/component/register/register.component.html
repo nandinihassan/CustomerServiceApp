@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="wrapper fadeInDown ">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first ">
+      <h3>Register</h3>
+    </div>
+
+    <!-- Login Form -->
+    <form #us="ngForm">
+      <input
+        type="text"
+        id="Name"
+        class="fadeIn second"
+        ngModel
+        name="name"
+        placeholder=" Name"
+        required
+      />
+      <input
+        type="text"
+        id="login"
+        class="fadeIn second"
+        ngModel
+        name="email"
+        placeholder=" Email"
+        required
+      />
+      <input
+        type="text"
+        id="password"
+        class="fadeIn third"
+        ngModel
+        name="password"
+        placeholder=" Password"
+        required
+      />
+      
+
+      <input type="submit" class="fadeIn fourth" (click)="register(us)" value="Register" />
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      Have Account?
+      <a class="underlineHover" routerLink="/login">
+        <strong>Login here</strong></a
+      >
+    </div>
+  </div>
+</div>

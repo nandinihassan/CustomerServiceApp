@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="container mt-5 mb-2">
+  <header>
+    <h3>
+      <span class="fa fa-users"></span>
+      Customers
+    </h3>
+  </header>
+  <br />
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link disabled" routerLink="/customer">Card view</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="/list">List view</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Map view</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/edit">+New Customer</a>
+    </li>
+  </ul>
+</div>
+<div class="container mt-5">
+    <div class="row grid-container">
+        <div class="col-md-10">
+            <div class="table">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                          <th>Sno</th>
+                          <th>Name</th>
+                          <th>Address</th>
+                          <th>City</th>
+                          <th>State</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let k of alluser; index as i">
+                          <td scope="row">{{i+1}}</td>
+                          <td>{{k.Name}}</td>
+                          <td>{{k.Address}}</td>
+                          <td>{{k.City}}</td>
+                          <td>{{k.State}}</td>
+                          <td class="text-middle">
+                          </td>
+                        </tr>
+                      </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
